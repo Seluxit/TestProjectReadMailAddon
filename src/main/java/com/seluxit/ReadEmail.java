@@ -25,10 +25,16 @@ public class ReadEmail implements GenericAction {
     @Parameter(description = "Port")
     public String port;
 
+    @Parameter(description = "Username")
+    public String username;
+
+    @Parameter(description = "Password")
+    public String password;
+
     @Override
     public ExecutionResult execute(AddonHelper helper) throws FailureException {
         try {
-            String result = check(host, port, "true", "imap", "andreas@seluxit.com", "neo21515");
+            String result = check(host, port, "true", "imap", username, password);
 
             helper.getReporter().result("Addition result is: " + result);
         } catch (Exception e) {
